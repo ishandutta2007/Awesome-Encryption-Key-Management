@@ -14,188 +14,148 @@
       <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
 
+    <!-- Shield Gradient -->
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.95" />
     </linearGradient>
 
-    <!-- Glowing Filters -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <!-- Glowing Filter (Standard SVG Primitives) -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
   </defs>
 
-  <style>
-    .bg { fill: url(#bgGrad); }
-    .grid-line { stroke: #1e293b; stroke-width: 0.8; stroke-opacity: 0.45; }
-    
-    /* Dynamic Animated Background Waves & Particles */
-    @keyframes pulseOrb {
-      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.25; }
-      50% { transform: scale(1.15) translate(20px, -15px); opacity: 0.45; }
-    }
-    @keyframes pulseOrb2 {
-      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.2; }
-      50% { transform: scale(1.2) translate(-25px, 20px); opacity: 0.38; }
-    }
-    @keyframes floatParticle {
-      0% { transform: translateY(0px); opacity: 0.3; }
-      50% { transform: translateY(-18px); opacity: 0.8; }
-      100% { transform: translateY(0px); opacity: 0.3; }
-    }
-    @keyframes rotateRing {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes dashCycle {
-      0% { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: 200; }
-    }
+  <!-- Background Base Canvas -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
 
-    .orb1 { animation: pulseOrb 8s ease-in-out infinite; transform-origin: 200px 100px; }
-    .orb2 { animation: pulseOrb2 10s ease-in-out infinite; transform-origin: 1000px 260px; }
-    .p1 { animation: floatParticle 4s ease-in-out infinite; }
-    .p2 { animation: floatParticle 5s ease-in-out infinite 1s; }
-    .p3 { animation: floatParticle 6s ease-in-out infinite 2s; }
-    .dynamic-ring {
-      animation: rotateRing 24s linear infinite;
-      transform-origin: 1040px 180px;
-    }
-    .flow-line {
-      stroke-dasharray: 8 6;
-      animation: dashCycle 6s linear infinite;
-    }
+  <!-- Background Grid Lines -->
+  <g stroke="#1e293b" stroke-width="0.8" stroke-opacity="0.45">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="150" y1="0" x2="150" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="450" y1="0" x2="450" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="750" y1="0" x2="750" y2="360" />
+    <line x1="900" y1="0" x2="900" y2="360" />
+    <line x1="1050" y1="0" x2="1050" y2="360" />
+  </g>
 
-    /* Typography */
-    .title {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 800;
-      font-size: 44px;
-      fill: #ffffff;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      font-size: 20px;
-      fill: #94a3b8;
-      letter-spacing: 0.2px;
-    }
-    .badge-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      fill: #38bdf8;
-      letter-spacing: 0.8px;
-    }
-    .pill-text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      fill: #cbd5e1;
-    }
-  </style>
+  <!-- Dynamic Animated Glow Orbs in Background using SMIL -->
+  <!-- Orb 1 (Top Left) -->
+  <circle cx="200" cy="100" r="130" fill="#6366f1" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.18;0.38;0.18" dur="7s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0; 25,-15; 0,0" dur="7s" repeatCount="indefinite" />
+  </circle>
 
-  <!-- Background Canvas -->
-  <rect width="1200" height="360" rx="16" class="bg" />
+  <!-- Orb 2 (Bottom Right) -->
+  <circle cx="1020" cy="240" r="140" fill="#06b6d4" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.15;0.35;0.15" dur="9s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0,0; -20,15; 0,0" dur="9s" repeatCount="indefinite" />
+  </circle>
 
-  <!-- Background Grid -->
+  <!-- Orb 3 (Top Center Subtle Purple) -->
+  <circle cx="650" cy="40" r="85" fill="#a855f7" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.1;0.22;0.1" dur="11s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Animated Data Connection Lines (Safe area: far right background) -->
+  <g opacity="0.4">
+    <path d="M 850 180 Q 950 120 1040 180 T 1150 180" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" values="0;100" dur="6s" repeatCount="indefinite" />
+    </path>
+    <path d="M 880 220 Q 960 270 1040 180 T 1160 210" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" values="100;0" dur="8s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Floating Constellation Dots with SMIL opacity pulse -->
   <g>
-    <line x1="0" y1="60" x2="1200" y2="60" class="grid-line" />
-    <line x1="0" y1="120" x2="1200" y2="120" class="grid-line" />
-    <line x1="0" y1="180" x2="1200" y2="180" class="grid-line" />
-    <line x1="0" y1="240" x2="1200" y2="240" class="grid-line" />
-    <line x1="0" y1="300" x2="1200" y2="300" class="grid-line" />
-    <line x1="150" y1="0" x2="150" y2="360" class="grid-line" />
-    <line x1="300" y1="0" x2="300" y2="360" class="grid-line" />
-    <line x1="450" y1="0" x2="450" y2="360" class="grid-line" />
-    <line x1="600" y1="0" x2="600" y2="360" class="grid-line" />
-    <line x1="750" y1="0" x2="750" y2="360" class="grid-line" />
-    <line x1="900" y1="0" x2="900" y2="360" class="grid-line" />
-    <line x1="1050" y1="0" x2="1050" y2="360" class="grid-line" />
+    <circle cx="120" cy="80" r="2.5" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="480" cy="65" r="3" fill="#818cf8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="830" cy="90" r="2.5" fill="#a78bfa">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1110" cy="90" r="3" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.3;0.95;0.3" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="950" cy="290" r="2.5" fill="#818cf8">
+      <animate attributeName="opacity" values="0.25;0.85;0.25" dur="3.5s" repeatCount="indefinite" />
+    </circle>
   </g>
 
-  <!-- Dynamic Animated Glow Orbs (Background layer) -->
-  <circle cx="200" cy="100" r="140" fill="#6366f1" filter="url(#glow)" class="orb1" />
-  <circle cx="1020" cy="240" r="150" fill="#06b6d4" filter="url(#glow)" class="orb2" />
-  <circle cx="600" cy="30" r="80" fill="#a855f7" filter="url(#glow)" opacity="0.15" />
-
-  <!-- Animated Data Connection Lines (Safe area: far right) -->
-  <g opacity="0.45">
-    <path d="M 850 180 Q 950 120 1040 180 T 1150 180" fill="none" stroke="#6366f1" stroke-width="2" class="flow-line" />
-    <path d="M 880 220 Q 960 270 1040 180 T 1160 210" fill="none" stroke="#06b6d4" stroke-width="1.8" class="flow-line" style="animation-direction: reverse;" />
-  </g>
-
-  <!-- Animated Subtle Floating Constellation Points -->
-  <g>
-    <circle cx="120" cy="80" r="2.5" fill="#38bdf8" class="p1" />
-    <circle cx="480" cy="65" r="3" fill="#818cf8" class="p2" />
-    <circle cx="830" cy="90" r="2.5" fill="#a78bfa" class="p3" />
-    <circle cx="1110" cy="90" r="3" fill="#38bdf8" class="p1" />
-    <circle cx="950" cy="290" r="2" fill="#818cf8" class="p2" />
-  </g>
-
-  <!-- Cryptographic Graphic Anchor on the Right Side -->
+  <!-- Cryptographic Hardware &amp; Key Symbol (Far Right Graphic Anchor) -->
   <g transform="translate(1040, 180)">
     <!-- Rotating decorative orbital ring -->
-    <circle cx="0" cy="0" r="75" fill="none" stroke="url(#primaryGrad)" stroke-width="1.5" stroke-dasharray="14 10" class="dynamic-ring" opacity="0.6" />
-    <circle cx="0" cy="0" r="60" fill="#0f172a" stroke="#334155" stroke-width="2" />
+    <circle cx="0" cy="0" r="75" fill="none" stroke="url(#primaryGrad)" stroke-width="1.8" stroke-dasharray="14 10" opacity="0.65">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite" />
+    </circle>
+    <!-- Inner Base Circle -->
+    <circle cx="0" cy="0" r="58" fill="#0f172a" stroke="#334155" stroke-width="2" />
     
-    <!-- Central Shield & Key Symbol -->
-    <path d="M 0 -32 L 24 -20 C 24 12 12 28 0 34 C -12 28 -24 12 -24 -20 Z" fill="url(#shieldGrad)" />
-    <!-- Key icon cutout in center of shield -->
-    <circle cx="0" cy="-6" r="6.5" fill="#0f172a" />
+    <!-- Central Cryptographic Shield -->
+    <path d="M 0 -30 L 22 -18 C 22 10 11 26 0 31 C -11 26 -22 10 -22 -18 Z" fill="url(#shieldGrad)" />
+    <!-- Key Cutout Inside Shield -->
+    <circle cx="0" cy="-6" r="6" fill="#0f172a" />
     <rect x="-2" y="-3" width="4" height="18" rx="1.5" fill="#0f172a" />
     <rect x="0" y="3" width="6" height="3" rx="1" fill="#0f172a" />
     <rect x="0" y="9" width="5" height="3" rx="1" fill="#0f172a" />
   </g>
 
-  <!-- Foreground Content (Left & Center - completely unobstructed) -->
+  <!-- Foreground Content (Left &amp; Center - perfectly legible and unobstructed) -->
   <g transform="translate(70, 75)">
     <!-- Top Category Pill -->
     <g>
       <rect x="0" y="0" width="310" height="30" rx="15" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1.2" />
-      <circle cx="16" cy="15" r="5" fill="#10b981" />
-      <text x="32" y="20" class="badge-text">CURATED ENTERPRISE SECURITY</text>
+      <circle cx="16" cy="15" r="5" fill="#10b981">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="32" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#38bdf8" letter-spacing="0.8">CURATED ENTERPRISE SECURITY</text>
     </g>
 
     <!-- Main Title -->
-    <text x="0" y="80" class="title">
+    <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="44" fill="#ffffff" letter-spacing="-0.5">
       Awesome Encryption Key Management
     </text>
 
     <!-- Subtitle -->
-    <text x="0" y="122" class="subtitle">
-      KMS Platforms • Secrets Orchestration • HSM &amp; Cryptographic Lifecycle
+    <text x="0" y="122" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="500" font-size="20" fill="#94a3b8" letter-spacing="0.2">
+      KMS Platforms &#8226; Secrets Orchestration &#8226; HSM &amp; Cryptographic Lifecycle
     </text>
 
-    <!-- Feature Pills / Tags (Foreground) -->
+    <!-- Feature Pills in Foreground -->
     <g transform="translate(0, 160)">
       <!-- Pill 1: Multi-Cloud KMS -->
       <g>
-        <rect x="0" y="0" width="150" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="18" y="22" class="pill-text">🔑 Multi-Cloud KMS</text>
+        <rect x="0" y="0" width="160" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="18" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#cbd5e1">Multi-Cloud KMS</text>
       </g>
       <!-- Pill 2: Hardware HSM -->
-      <g transform="translate(162, 0)">
+      <g transform="translate(172, 0)">
         <rect x="0" y="0" width="170" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="18" y="22" class="pill-text">🛡️ FIPS 140-3 HSM</text>
+        <text x="18" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#cbd5e1">FIPS 140-3 HSM</text>
       </g>
       <!-- Pill 3: Zero-Trust Secrets -->
-      <g transform="translate(344, 0)">
+      <g transform="translate(354, 0)">
         <rect x="0" y="0" width="180" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="18" y="22" class="pill-text">⚡ Zero-Trust Secrets</text>
+        <text x="18" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#cbd5e1">Zero-Trust Secrets</text>
       </g>
-      <!-- Pill 4: Open Source & KMIP -->
-      <g transform="translate(536, 0)">
-        <rect x="0" y="0" width="170" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="18" y="22" class="pill-text">🌐 KMIP / Post-Quantum</text>
+      <!-- Pill 4: Open Source and KMIP -->
+      <g transform="translate(546, 0)">
+        <rect x="0" y="0" width="180" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="18" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="13" fill="#cbd5e1">KMIP / Post-Quantum</text>
       </g>
     </g>
   </g>
