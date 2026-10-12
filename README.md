@@ -1,48 +1,53 @@
-# Awesome-Encryption-Key-Management
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Encryption Key Management Banner" width="100%" />
+</p>
 
-## Top Encryption Key Management Ecosystem
+# 🔐 Awesome Encryption Key Management
 
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Encryption-Key-Management/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Encryption-Key-Management?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Encryption-Key-Management/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Encryption-Key-Management?style=social" alt="GitHub Forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Encryption-Key-Management/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ishandutta2007/Awesome-Encryption-Key-Management?color=blue" alt="License" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
+> 🛡️ **A curated directory of enterprise SaaS solutions and open-source GitHub projects dedicated to cryptographic key management systems (KMS), hardware security modules (HSM), SecretOps, envelope encryption, and post-quantum cryptographic (PQC) lifecycle security.**
 
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
+---
 
-*Focused on Cryptographic Key Lifecycle, Secrets Management & Hardware Security*  
+## 📌 Overview
 
 **Last updated: March 2026**
 
+This repository tracks category-defining **SaaS platforms** and **open-source tools** for **Enterprise Encryption Key Management (EKM)** and **Secrets Orchestration**. Cryptographic key management systems enable organizations to securely generate, import (BYOK / HYOK), store, rotate, audit, and revoke encryption keys and digital secrets across multi-cloud environments, on-premises data centers, and Kubernetes clusters.
 
+### 🎯 Key Focus Areas:
+- 🔑 **Cryptographic Key Lifecycle**: Automated key generation, rotation, expiration, and cryptographic erasure conforming to NIST SP 800-57 guidelines.
+- 🏢 **Hardware Security Modules (HSM)**: Dedicated FIPS 140-2 / FIPS 140-3 Level 3 & Level 4 physical and cloud HSM appliances.
+- ⚙️ **SecretOps & Zero-Trust Delivery**: Dynamic short-lived credentials, runtime API token injection, and GitOps secret pipelines.
+- 🌐 **Interoperability & Standards**: KMIP (Key Management Interoperability Protocol), PKCS#11, PKI/CA automation, and Post-Quantum Cryptography (PQC) readiness.
 
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Encryption Key Management**. These tools enable organizations to generate, store, rotate, and control access to cryptographic keys and secrets — securing data at rest, in transit, and across cloud environments while meeting compliance requirements.
+---
 
+## 📑 Table of Contents
 
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [☁️ SaaS/Hosted Platforms](#️-saashosted-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [📈 Star History](#--star-history)
+- [💖 Support & Sponsorship](#-support--sponsorship)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [⚠️ Disclaimer](#️-disclaimer)
 
-**Examples** include Salesforce Key Management, HashiCorp Vault, AWS KMS, Azure Key Vault, Google Cloud KMS, Akeyless Vault, Fortanix DSM, Thales CipherTrust, Doppler, and CyberArk Conjur (the category leaders).
+---
 
-
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, hardware security module integration, and open key management — ideal for security engineers, platform teams, and organizations seeking transparent, vendor-independent encryption infrastructure.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer](#disclaimer)
-
-
-
-## Sector Overview & Market Dynamics
+## 📊 Sector Overview & Market Dynamics
 
 The global Enterprise Key Management (EKM) and encryption software market is estimated at **$3.0B–$3.5B in 2025–2026**, growing at a CAGR of ~16–21% toward over $8B–$9B by the early 2030s driven by hybrid cloud sprawl, post-quantum cryptography (PQC) preparation, and regulatory compliance (GDPR, DORA, NIS2). The sector is **moderately fragmented yet tiered**: hyperscale cloud providers (Microsoft, Alphabet, AWS) dominate native cloud envelope encryption and infrastructure key custody, while specialized enterprise security providers (Thales, CyberArk, HashiCorp/IBM) and emerging SecretOps platforms (Infisical, Doppler, Akeyless) compete heavily for cross-cloud orchestration, secrets lifecycle, and zero-trust key management.
 
-## SaaS/Hosted Platforms
+## ☁️ SaaS/Hosted Platforms
 
 | Product | Scale (Valuation / Revenue) | Starting Tier Pricing | Free Tier / Trial Limits | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -57,11 +62,7 @@ The global Enterprise Key Management (EKM) and encryption software market is est
 | **[Fortanix (Fortanix DSM)](https://www.fortanix.com/)** | ~$350M Valuation ($122M Raised) | Consumption-based subscription via cloud marketplace starting at ~$500–$1,000/month in app credits / private offers | **30-Day Free Trial** of Fortanix DSM SaaS Enterprise tier with full HSM-as-a-Service capabilities (no credit card required) | Data Security Manager with HSM-as-a-Service, FIPS 140-2 Level 3 validated HSMs, confidential computing, and multi-cloud key orchestration. |
 | **[Doppler](https://www.doppler.com/)** | ~$75M Valuation ($44M Raised) | Team Tier starts at $18/month (includes first 3 users; additional users at $6/user/month); Developer Tier free | **Free Forever Developer Plan**: Free for up to 3 users with universal secret management, environments, and CLI workflows | Developer-first SecretOps platform with CLI-driven workflows, multi-environment syncing, and secret rotation integrations. |
 
-
-
-
-
-## Open-Source GitHub Projects
+## 💻 Open-Source GitHub Projects
 
 Curated list of open-source encryption key managers, secrets management systems, and cryptographic tooling, sorted in descending order by GitHub stars.
 
@@ -143,40 +144,42 @@ Curated list of open-source encryption key managers, secrets management systems,
 
 
 
-## How to Contribute
+## 📈 Star History
 
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Key management systems handling cryptographic material must comply with security standards (FIPS 140-2/3, SOC 2, PCI-DSS, etc.).
-
-- Self-hosted open-source solutions require proper security hardening, HSM integration where required, and ongoing maintenance. Key custody is a security-critical operation demanding appropriate operational expertise.
-
-
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Encryption-Key-Management&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Encryption-Key-Management&type=date&legend=top-left)
 
 ---
 
+## 💖 Support & Sponsorship
 
+Thank you for visiting and supporting the **Awesome Encryption Key Management** project! If you find this curated resource helpful for your infrastructure, security architecture, or engineering team:
 
-**Made for security engineers, platform teams, compliance officers, and developers building transparent key management solutions.**  
+- ⭐ **Star** this repository on GitHub to help others discover it.
+- 🍴 **Fork** and contribute new enterprise platforms, tools, or research updates.
+- 📢 **Share** with colleagues and security communities on LinkedIn, Twitter/X, and Reddit.
+- ☕ **Buy me a coffee / Sponsor**: If you'd like to support ongoing maintenance and curation of open security resources, consider sponsoring via the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
 
-Let's make Encryption Key Management more open, secure, and interoperable.
+---
+
+## 🤝 How to Contribute
+
+1. Fork the repo.
+2. Add/edit entries in `README.md` (follow the existing table and list formats).
+3. Include: name, official link, 1–2 sentence description, and pricing/scale or star badges.
+4. Submit a PR with a concise explanation.
+
+---
+
+## ⚠️ Disclaimer
+
+- This is a **community-curated** list — not exhaustive and not an official vendor endorsement.
+- Key management systems handling cryptographic material must comply with security standards (FIPS 140-2/3, SOC 2, PCI-DSS, Common Criteria, etc.).
+- Self-hosted open-source solutions require proper security hardening, HSM integration where required, and ongoing maintenance. Key custody is a security-critical operation demanding appropriate operational expertise.
+
+---
+
+<p align="center">
+  <b>Made for security engineers, platform teams, compliance officers, and developers building transparent key management solutions.</b><br>
+  Let's make Encryption Key Management more open, secure, and interoperable. 🚀
+</p>
+
